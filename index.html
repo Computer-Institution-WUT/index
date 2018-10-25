@@ -1,21 +1,137 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <style type="text/css">
+      .jumbotron {
+        background-color: rgba(0,0,0,0);
+        opacity: 1;
+      }
+      .bg-img {
+        background-image: url(img/14444312.jpg);
+        background-position: left center;
+        background-repeat:  no-repeat;
+        background-attachment: fixed;
+        background-size:  cover;
+        background-color: #000099;
+      }
+    </style>
     <title>WUTCS</title>
   </head>
-  <body>
-    <h1>TEST</h1>
 
+  <body>
+    <div class="bg-img">
+    <div class="container">
+      <div class="row">
+        <div class="col mt-5">
+          <div class="jumbotron jumbotron-fluid mt-5">
+            <div class="container">
+              <h1 class="display-6 text-white">武汉理工大学计算机协会</h1>
+                <p class="display-10 text-light">Interesting things...</p>
+                <a class="btn btn-primary" href="#" role="button" id='head-back-btn'>Hello</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col" style="background-color: rgba(0, 0, 0, 0.45)">
+          <nav class="nav">
+            <a class="nav-link" href="/" id='head-nav-index'>Home</a>
+            <a class="nav-link" href="about" id='head-nav-about'>About</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-light dropdown-toggle" id="show_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgba(0, 0, 0, 0.33);">Bing</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" onclick="change_select('bing')">Bing</a>
+                  <a class="dropdown-item" onclick="change_select('rar')">RARBG</a>
+                  <a class="dropdown-item" onclick="change_select('subhd')">SubHD</a>
+                  <a class="dropdown-item" onclick="change_select('cilimao')">Cilimao</a>
+                </div>
+              </div>
+              <input type="text" class="form-control" id="search_string" placeholder="Search">
+              <div class="input-group-append">
+                <button class="btn btn-outline-light" type="button" style="background-color: rgba(0, 0, 0, 0.25)" onclick="clear_search()">Clear</button>
+                <button class="btn btn-outline-light" type="button" style="background-color: rgba(0, 0, 0, 0.25)" onclick="make_search()">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="jumbotron jumbotron-fluid mt-5">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col text-light text-center">
+                Site made by SKY & Xeon
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var _current = 'bing'
+        function change_select(_targ) {
+          if (_targ === 'bing') {
+            $('#show_button')[0].innerText = 'Bing';
+            _current = 'bing'
+          } else if (_targ === 'rar') {
+            $('#show_button')[0].innerText = 'RARBG';
+            _current = 'rar'
+          } else if (_targ === 'subhd') {
+            $('#show_button')[0].innerText = 'SubHD';
+            _current = 'subhd'
+          } else if (_targ === 'cilimao') {
+            $('#show_button')[0].innerText = 'Cilimao';
+            _current = 'cilimao'
+          }
+        }
+
+        function make_search() {
+          var _string = $('#search_string')[0].value;
+          if (_current === 'bing') {
+            window.open("https://cn.bing.com/search?q=" + _string);   
+          } else if (_current === 'rar') {
+            window.open("https://rarbg.is/torrents.php?search=" + _string);  
+          } else if (_current === 'subhd') {
+            window.open("http://subhd.com/search0/" + _string);  
+          } else if (_current === 'cilimao') {
+            window.open("http://www.cilimao.me/search?word=" + _string + "&page=1" + _string);  
+          }
+        }
+
+        function clear_search() {
+          $('#search_string')[0].value = '';
+        }
+
+        function change_head() {
+          $('#head-nav-index').addClass('text-white')
+          $('#head-nav-index')[0].href = '#'
+        }
+        change_head()
+    </script>
   </body>
 </html>
