@@ -1,6 +1,4 @@
-# index - our pages project
-
-## mainpage.wutcom.wut
+# index - [WUTCOM](https://wutcom.club)
 
 ![LOGO](https://avatars3.githubusercontent.com/u/40829206?s=400&u=9c41875ca0ee5532d15aebacc4b16b125de83444&v=4)
 
